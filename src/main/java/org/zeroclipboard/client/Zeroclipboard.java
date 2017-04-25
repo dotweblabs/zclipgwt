@@ -32,7 +32,7 @@ public class Zeroclipboard {
         ScriptInjector.fromString(resources.zeroClipboardJs().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW)
                 .inject();
-        zeroClipboardConfig("ZeroClipboard.swf");
+        zeroClipboardConfig(resources.zeroClipboardSwf().getSafeUri().asString());
         callback = c;
     }
 

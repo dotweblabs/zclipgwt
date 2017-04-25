@@ -64,7 +64,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>${gwt.version}</version>
+				<version>${gwt-maven.version}</version>
 			</plugin>
 			<plugin>
 				<artifactId>maven-surefire-plugin</artifactId>
