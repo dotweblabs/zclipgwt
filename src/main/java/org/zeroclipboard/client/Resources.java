@@ -30,10 +30,10 @@ public interface Resources extends ClientBundle {
 
     Resources INSTANCE = GWT.create(Resources.class);
 
-    @Source("public/ZeroClipboard.js")
+    @Source("ZeroClipboard.js")
     public TextResource zeroClipboardJs();
 
-    @Source("public/ZeroClipboard.swf")
+    @Source("ZeroClipboard.swf")
     public DataResource zeroClipboardSwf();
 
 }
