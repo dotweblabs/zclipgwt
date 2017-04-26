@@ -21,13 +21,13 @@ import com.google.gwt.core.client.ScriptInjector;
 import com.google.gwt.dom.client.Element;
 import elemental.client.Browser;
 
-public class Zeroclipboard {
+public class ZeroClipboard {
 
     public static boolean isInjected = false;
     public static boolean isReady = false;
-    public static ZeroclipboardCallback callback;
+    public static ZeroClipboardCallback callback;
 
-    public static void zlip(ZeroclipboardCallback c) {
+    public static void zlip(ZeroClipboardCallback c) {
         Resources resources = GWT.create(Resources.class);
         ScriptInjector.fromString(resources.zeroClipboardJs().getText())
                 .setWindow(ScriptInjector.TOP_WINDOW)
@@ -44,17 +44,17 @@ public class Zeroclipboard {
     public static native void zeroClipboard(Element el, String textToCopy)/*-{
       var client = new $wnd.ZeroClipboard(el);
       client.on( 'ready', function(event) {
-        @org.zeroclipboard.client.Zeroclipboard::onReady()();
+        @org.zeroclipboard.client.ZeroClipboard::onReady()();
         client.on( 'copy', function(event) {
             event.clipboardData.setData('text/plain', textToCopy);
         } );
         client.on( 'aftercopy', function(event) {
-            @org.zeroclipboard.client.Zeroclipboard::onAfterCopy(Ljava/lang/String;)(event.data['text/plain']);
+            @org.zeroclipboard.client.ZeroClipboard::onAfterCopy(Ljava/lang/String;)(event.data['text/plain']);
         } );
       } );
       client.on( 'error', function(event) {
             $wnd.console.log('ZeroClipboard error of type ' + event.name + ': ' + event.message);
-            @org.zeroclipboard.client.Zeroclipboard::onError()();
+            @org.zeroclipboard.client.ZeroClipboard::onError()();
             $wnd.ZeroClipboard.destroy();
       } );
     }-*/;
@@ -64,7 +64,7 @@ public class Zeroclipboard {
     }-*/;
 
     public static void onReady(){
-        Zeroclipboard.isReady = true;
+        ZeroClipboard.isReady = true;
     }
 
     public static void onCopy(){
@@ -78,7 +78,7 @@ public class Zeroclipboard {
     public static void onError(){
         // TODO: Temporary remove this until the task to check for Flash is there
         Browser.getWindow().getConsole().log("Unable to copy clipboard");
-        Zeroclipboard.isReady = false;
+        ZeroClipboard.isReady = false;
         callback.onError();
     }
 }

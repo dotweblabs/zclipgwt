@@ -16,29 +16,7 @@
  */
 package org.zeroclipboard.client;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.junit.client.GWTTestCase;
-
-/**
- *
- * Unit tests of {@link ZeroclipboardTest}
- */
-public class ZeroclipboardTest extends GWTTestCase {
-
-    TestResources resources;
-
-    @Override
-    public String getModuleName() {
-        return "org.zeroclipboard.Zeroclipboard";
-    }
-
-    public void gwtSetUp() {
-        resources = GWT.create(TestResources.class);
-    }
-
-    public void test() {
-    }
-    public static void log(String s){
-        System.out.println(s);
-    }
+public interface ZeroClipboardCallback {
+    void onCopy(String copied);
+    void onError();
 }
